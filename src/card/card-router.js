@@ -1,9 +1,9 @@
-const express = require('express')
-const uuid = require('uuid/v4')
-const logger = require('../logger')
-const { cards, lists } = require('../store')
-const cardRouter = express.Router()
-const bodyParser = express.json()
+const express = require('express');
+const uuid = require('uuid/v4');
+const logger = require('../logger');
+const { cards, lists } = require('../store');
+const cardRouter = express.Router();
+const bodyParser = express.json();
 
 
 cardRouter
@@ -11,7 +11,7 @@ cardRouter
   .get((req, res) => {
      res.json(cards)
   })
-  .post(bodyParser, (req, res) => {
+ .post(bodyParser, (req, res, next) =>  {
     const { title, content } = req.body;
 
     if (!title) {

@@ -2,7 +2,6 @@ const express = require('express')
 const uuid = require('uuid/v4')
 const logger = require('../logger')
 const { cards, lists } = require('../store')
-
 const listRouter = express.Router()
 const bodyParser = express.json()
 
@@ -11,7 +10,7 @@ listRouter
   .get((req, res) => {
     res
     .json(lists);
-});
+})
   .post(bodyParser, (req, res) => {
      const { header, cardIds = [] } = req.body;
 
@@ -74,7 +73,7 @@ listRouter
       }
 
       res.json(list);
-    });
+    })
   .delete((req, res) => {
      const { id } = req.params;
 
